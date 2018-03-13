@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>No Hamsters</title>
+    <style>
+    
+        canvas{
+            
+           background-color: #2d2d77; 
+            
+        }
+        img{
+            position: relative;
+        }
+    
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="550" height="600"></canvas>
+    
+    
+
+<script>
+    var canvas= document.querySelector("#myCanvas");
+    var ctx= canvas.getContext("2d");
+    
+    ctx.save();
+
+
+    var Img = document.createElement('img');
+
+    Img.src = '../line_joins/images/hamster.png';
+    Img.onload = function() {
+    
+        ctx.beginPath();
+        ctx.strokeStyle='red';
+        ctx.fillStyle ='white';
+        ctx.lineWidth = 15;
+
+
+        ctx.arc(150, 150, 125, 0, Math.PI * 2, true);
+
+        ctx.fill();
+        ctx.stroke();
+        ctx.clip();
+
+        ctx.drawImage(Img, 30, 30, 250, 250);
+        ctx.beginPath();
+        ctx.lineWidth =20; 
+        ctx.moveTo(20,-50); 
+        ctx.lineTo(220, 260);
+        ctx.fill();
+        
+        ctx.stroke();
+        ctx.fillStyle  = "red";
+        ctx.font = "bold 35px Arial";
+        ctx.restore();
+
+        ctx.beginPath();
+        ctx.lineWidth =20;
+        ctx.font = "bold 35px Arial";
+        ctx.fillStyle ='red';
+        ctx.fillText( "No HAMSTERS" ,20, 340);
+        ctx.fill();
+        ctx.stroke();
+       
+};   
+</script>
+    </body>
+
+</html>
